@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FactoryController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/design-pattern/src/Controller/FactoryController.php'|file_link(0) }}">src/Controller/FactoryController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/design-pattern/templates/factory/index.html.twig'|file_link(0) }}">templates/factory/index.html.twig</a></code></li>
+    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col col-6">
+                <h2>MYSQL</h2>
+                {% for row in db_mysql %}
+                    <p>{{ row["id"] }}: {{ row["name"] }}</p>
+                {% endfor %}
+            </div>
+            <div class="col col-6">
+                <h2>PGSQL</h2>
+                {% for row in db_pgsql %}
+                    <p>{{ row[0] }}: {{ row[1] }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <a href="{{ path('index') }}">Revenir à l'accueil</a>
+</div>
+{% endblock %}
